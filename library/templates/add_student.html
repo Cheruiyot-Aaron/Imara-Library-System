@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <title>Add Student</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Add a New Student</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="student_id" class="form-label">Student ID</label>
+                <input type="text" class="form-control" name="student_id" required>
+            </div>
+            <div class="mb-3">
+                <label for="full_name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="full_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="date_of_birth" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" name="date_of_birth" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="mobile_number" class="form-label">Mobile Number</label>
+                <input type="text" class="form-control" name="mobile_number" required>
+            </div>
+            <div class="mb-3">
+                <label for="grade" class="form-label">Grade</label>
+                <input type="text" class="form-control" name="grade" required>
+            </div>
+            <div class="mb-3">
+                <label for="max_books_allowed" class="form-label">Maximum Books Allowed</label>
+                <input type="number" class="form-control" name="max_books_allowed" value="5" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Student</button>
+        </form>
+    </div>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

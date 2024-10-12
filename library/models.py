@@ -29,3 +29,26 @@ class Student(models.Model):
     def __str__(self):
         return self.full_name
 
+
+class Borrowing(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    borrow_date = models.DateTimeField(auto_now_add=True)
+    return_date = models.DateField(null=True, blank=True)
+    is_returned = models.BooleanField(default=False)
+
+class Librarian(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    mobile_number = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.name
+
+def check_eligibility(student):
+    max_books_allowed = student.max_books_allowed
+    current_borrowed = Borrowing.objects.filter(student=student, is_returned=False).count()
+    if current_borrowed >= max_books_allowed:
+        return False
+    return True
+

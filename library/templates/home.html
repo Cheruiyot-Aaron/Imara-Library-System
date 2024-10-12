@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <title>Library Home</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Welcome to Imara Library System</h1>
+        <div class="text-center">
+            <a href="{% url 'add_book' %}" class="btn btn-primary">Add Book</a>
+            <a href="{% url 'add_student' %}" class="btn btn-primary">Add Student</a>
+        </div>
+    </div>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
